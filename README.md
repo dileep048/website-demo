@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nisha Engineering Website
+
+A production-ready Next.js website for [Nisha Engineering](https://nishaengg.com) — manufacturer and exporter of pharmaceutical, chemical, and cosmetics machinery.
+
+Built from the Figma design reference with SEO optimization, semantic HTML, and performance best practices.
+
+## Tech Stack
+
+- Next.js 16 (App Router, Static Generation)
+- React 19 + TypeScript
+- Tailwind CSS 4
+- JSON-LD structured data (Organization, LocalBusiness, Product, Breadcrumb)
+
+## Pages
+
+| Route | Description |
+| ----- | ----------- |
+| `/` | Home — Hero, About, Products, Stats, Mission, Contact |
+| `/about` | Company history and milestones |
+| `/products` | Product catalog |
+| `/products/[slug]` | Individual product detail pages (SSG) |
+| `/contact` | Contact form and business info |
+
+## SEO Features
+
+- Per-page metadata with Open Graph and Twitter cards
+- Auto-generated `sitemap.xml` and `robots.txt`
+- Dynamic Open Graph image (`/opengraph-image`)
+- JSON-LD structured data for search engines
+- Semantic HTML with proper heading hierarchy
+- Canonical URLs and keyword metadata
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Set `NEXT_PUBLIC_SITE_URL` in `.env.local` to your production domain for correct canonical URLs and sitemap.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+| ------- | ----------- |
+| `npm run dev` | Development server (Turbopack) |
+| `npm run build` | Production build |
+| `npm run start` | Start production server |
+| `npm run lint` | Run ESLint |
 
-## Learn More
+## Customization
 
-To learn more about Next.js, take a look at the following resources:
+- **Site content**: `src/config/site.ts`
+- **Products**: `src/config/products.ts`
+- **SEO utilities**: `src/lib/seo.ts`
+- **Home sections**: `src/components/home/`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Note on Design Assets
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Replace placeholder product visuals with exported Figma assets in `public/images/` and update components to use `next/image` for optimized loading.
