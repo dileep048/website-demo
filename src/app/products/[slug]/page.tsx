@@ -25,9 +25,17 @@ export async function generateMetadata({ params }: PageProps) {
   if (!product) return {};
 
   return createMetadata({
-    title: product.name,
-    description: product.shortDescription,
+    title: `${product.name} Manufacturer`,
+    description: `${product.description} Manufactured by Nisha Engineering, Ankleshwar, Gujarat.`,
     path: `/products/${product.slug}`,
+    keywords: [
+      product.name,
+      `${product.name} manufacturer`,
+      `${product.name} India`,
+      ...product.categories.map((c) => `${c} machinery`),
+      "Nisha Engineering",
+      "GMP equipment",
+    ],
   });
 }
 

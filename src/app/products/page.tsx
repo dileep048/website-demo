@@ -1,18 +1,49 @@
 import Link from "next/link";
 import { products } from "@/config/products";
 import { Container } from "@/components/layout/Container";
-import { createMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/JsonLd";
+import {
+  breadcrumbJsonLd,
+  createMetadata,
+  productItemListJsonLd,
+  webPageJsonLd,
+} from "@/lib/seo";
+
+const productsDescription =
+  "Browse Nisha Engineering's range of pharmaceutical and chemical machinery — Ointment Plants, Fluid Bed Dryers, Rotocone Vacuum Dryers, Syrup Plants, and more.";
 
 export const metadata = createMetadata({
   title: "Products",
-  description:
-    "Browse Nisha Engineering's range of pharmaceutical and chemical machinery — Ointment Plants, Fluid Bed Dryers, Rotocone Vacuum Dryers, Syrup Plants, and more.",
+  description: productsDescription,
   path: "/products",
+  keywords: [
+    "pharmaceutical machinery catalog",
+    "Rotocone Vacuum Dryer",
+    "Fluid Bed Dryer",
+    "Ointment Manufacturing Plant",
+    "Syrup Manufacturing Plant",
+    "Vacuum Tray Dryer",
+    "Contra Rotary Mixer",
+  ],
 });
 
 export default function ProductsPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          webPageJsonLd({
+            title: "Products",
+            description: productsDescription,
+            path: "/products",
+          }),
+          productItemListJsonLd(),
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Products", path: "/products" },
+          ]),
+        ]}
+      />
       <section className="bg-primary py-16 text-white">
         <Container>
           <p className="text-sm font-semibold uppercase tracking-widest text-accent">Products</p>

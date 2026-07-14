@@ -3,17 +3,39 @@ import { products } from "@/config/products";
 import { siteConfig } from "@/config/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = ["", "/about", "/products", "/contact"].map((path) => ({
-    url: `${siteConfig.url}${path}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: path === "" ? 1 : 0.8,
-  }));
+  const now = new Date();
 
-  const productPages = products.map((product) => ({
+  const staticPages: MetadataRoute.Sitemap = [
+    {
+      url: siteConfig.url,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 1,
+    },
+    {
+      url: `${siteConfig.url}/about`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${siteConfig.url}/products`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${siteConfig.url}/contact`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+  ];
+
+  const productPages: MetadataRoute.Sitemap = products.map((product) => ({
     url: `${siteConfig.url}/products/${product.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
+    lastModified: now,
+    changeFrequency: "monthly",
     priority: 0.7,
   }));
 

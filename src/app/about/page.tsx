@@ -1,14 +1,27 @@
 import { Button } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Container } from "@/components/layout/Container";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/config/site";
-import { createMetadata } from "@/lib/seo";
+import {
+  breadcrumbJsonLd,
+  createMetadata,
+  webPageJsonLd,
+} from "@/lib/seo";
+
+const aboutDescription =
+  "Learn about Nisha Engineering — established in 2007, we are a leading manufacturer and exporter of pharmaceutical, chemical, and cosmetics machinery from Ankleshwar, Gujarat.";
 
 export const metadata = createMetadata({
   title: "About Us",
-  description:
-    "Learn about Nisha Engineering — established in 2007, we are a leading manufacturer and exporter of pharmaceutical, chemical, and cosmetics machinery from Ankleshwar, Gujarat.",
+  description: aboutDescription,
   path: "/about",
+  keywords: [
+    "about Nisha Engineering",
+    "pharmaceutical machinery company Ankleshwar",
+    "ISO 9001 machinery manufacturer",
+    "GMP equipment manufacturer Gujarat",
+  ],
 });
 
 const milestones = [
@@ -21,6 +34,19 @@ const milestones = [
 export default function AboutPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          webPageJsonLd({
+            title: "About Us",
+            description: aboutDescription,
+            path: "/about",
+          }),
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "About", path: "/about" },
+          ]),
+        ]}
+      />
       <section className="bg-primary py-16 text-white">
         <Container>
           <p className="text-sm font-semibold uppercase tracking-widest text-accent">About Us</p>

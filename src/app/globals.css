@@ -25,6 +25,24 @@
   --font-sans: var(--font-inter);
 }
 
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.625rem 1rem;
+  border-radius: 0.375rem;
+  background: var(--accent);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -32,4 +50,449 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+/* ── Hero animated background ── */
+
+.hero-bg-mesh {
+  background:
+    radial-gradient(ellipse 50% 40% at 20% 30%, rgba(249, 115, 22, 0.3), transparent 60%),
+    radial-gradient(ellipse 45% 50% at 80% 20%, rgba(56, 189, 248, 0.22), transparent 55%),
+    radial-gradient(ellipse 40% 45% at 60% 80%, rgba(14, 165, 233, 0.15), transparent 55%);
+  animation: hero-mesh-drift 18s ease-in-out infinite alternate;
+}
+
+.hero-bg-orb {
+  will-change: transform;
+}
+
+.hero-bg-orb-1 {
+  top: -10%;
+  right: -5%;
+  animation: hero-orb-float-1 14s ease-in-out infinite;
+}
+
+.hero-bg-orb-2 {
+  bottom: -15%;
+  left: -8%;
+  animation: hero-orb-float-2 16s ease-in-out infinite;
+}
+
+.hero-bg-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 20%, transparent 75%);
+  animation: hero-grid-pan 40s linear infinite;
+}
+
+.hero-bg-silhouette {
+  color: white;
+}
+
+.hero-bg-silhouette-1 {
+  animation: hero-silhouette-sway 12s ease-in-out infinite;
+}
+
+.hero-bg-silhouette-2 {
+  animation: hero-silhouette-sway 14s ease-in-out infinite reverse;
+}
+
+.hero-steam {
+  animation: hero-steam-rise 6s ease-in-out infinite;
+}
+
+.hero-steam-2 {
+  animation-delay: 1.5s;
+}
+
+.hero-steam-3 {
+  animation-delay: 3s;
+}
+
+/* ── Machine equipment animation ── */
+
+.hero-equip-ring {
+  width: 70%;
+  height: 70%;
+}
+
+.hero-equip-ring-1 {
+  animation: hero-ring-pulse 4s ease-in-out infinite;
+}
+
+.hero-equip-ring-2 {
+  width: 90%;
+  height: 90%;
+  animation: hero-ring-pulse 4s ease-in-out 1.2s infinite;
+}
+
+.hero-equip-cone {
+  transform-box: view-box;
+  transform-origin: 240px 200px;
+  animation: hero-cone-rotate 12s linear infinite;
+}
+
+.hero-equip-gear-lg {
+  transform-box: view-box;
+  transform-origin: 90px 250px;
+  animation: hero-gear-spin 8s linear infinite;
+}
+
+.hero-equip-gear-sm {
+  transform-box: view-box;
+  transform-origin: 390px 270px;
+  animation: hero-gear-spin-reverse 5s linear infinite;
+}
+
+.hero-equip-dust circle {
+  animation: hero-dust-float 3.5s ease-in-out infinite;
+}
+
+.hero-equip-dust circle:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.hero-equip-dust circle:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.hero-equip-dust circle:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+.hero-equip-dust circle:nth-child(5) {
+  animation-delay: 2s;
+}
+
+.hero-equip-flow-1 {
+  animation: hero-flow-left 2.2s ease-in-out infinite;
+}
+
+.hero-equip-flow-2 {
+  animation: hero-flow-left 2.2s ease-in-out 0.6s infinite;
+}
+
+.hero-equip-flow-3 {
+  animation: hero-flow-right 2.4s ease-in-out infinite;
+}
+
+.hero-equip-flow-4 {
+  animation: hero-flow-right 2.4s ease-in-out 0.7s infinite;
+}
+
+.hero-equip-led {
+  animation: hero-led-blink 1.6s ease-in-out infinite;
+}
+
+.hero-equip-led-alt {
+  animation: hero-led-blink 2.2s ease-in-out 0.4s infinite;
+}
+
+.hero-equipment-enter {
+  animation: hero-equipment-fade 0.55s ease-out;
+}
+
+.hero-slide-text {
+  animation: hero-equipment-fade 0.45s ease-out;
+}
+
+.hero-equip-agitator {
+  transform-box: view-box;
+  transform-origin: 210px 200px;
+  animation: hero-gear-spin 2.5s linear infinite;
+}
+
+.hero-equip-homogenizer {
+  transform-box: view-box;
+  transform-origin: 240px 200px;
+  animation: hero-gear-spin 1.8s linear infinite;
+}
+
+.hero-equip-scraper {
+  transform-box: view-box;
+  transform-origin: 240px 200px;
+  animation: hero-gear-spin-reverse 4s linear infinite;
+}
+
+.hero-equip-bubbles circle {
+  animation: hero-bubble-rise 2.8s ease-in-out infinite;
+}
+
+.hero-equip-bubbles circle:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.hero-equip-bubbles circle:nth-child(3) {
+  animation-delay: 0.9s;
+}
+
+.hero-equip-bubbles circle:nth-child(4) {
+  animation-delay: 1.3s;
+}
+
+.hero-equip-bubbles circle:nth-child(5) {
+  animation-delay: 1.7s;
+}
+
+.hero-equip-liquid-level {
+  animation: hero-liquid-wave 3s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+.hero-equip-liquid-level-alt {
+  animation: hero-liquid-wave 3.5s ease-in-out 0.5s infinite;
+  transform-origin: center bottom;
+}
+
+.hero-equip-coil {
+  animation: hero-coil-pulse 2.5s ease-in-out infinite;
+}
+
+.hero-equip-cream-swirl {
+  animation: hero-cream-pulse 4s ease-in-out infinite;
+}
+
+@keyframes hero-equipment-fade {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes hero-bubble-rise {
+  0% {
+    transform: translateY(8px);
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(-28px);
+    opacity: 0;
+  }
+}
+
+@keyframes hero-liquid-wave {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.94);
+  }
+}
+
+@keyframes hero-coil-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes hero-cream-pulse {
+  0%,
+  100% {
+    opacity: 0.85;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes hero-mesh-drift {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  100% {
+    transform: translate(-4%, 3%) scale(1.08) rotate(4deg);
+  }
+}
+
+@keyframes hero-orb-float-1 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-40px, 50px) scale(1.15);
+  }
+}
+
+@keyframes hero-orb-float-2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(50px, -35px) scale(1.1);
+  }
+}
+
+@keyframes hero-grid-pan {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 64px 64px;
+  }
+}
+
+@keyframes hero-silhouette-sway {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes hero-steam-rise {
+  0% {
+    transform: translateY(20px) scaleY(0.8);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-60px) scaleY(1.4);
+    opacity: 0;
+  }
+}
+
+@keyframes hero-cone-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hero-gear-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hero-gear-spin-reverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes hero-ring-pulse {
+  0%,
+  100% {
+    transform: scale(0.92);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.7;
+  }
+}
+
+@keyframes hero-dust-float {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(6px, -10px);
+    opacity: 0.9;
+  }
+}
+
+@keyframes hero-flow-left {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+}
+
+@keyframes hero-flow-right {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(55px);
+    opacity: 0;
+  }
+}
+
+@keyframes hero-led-blink {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-mesh,
+  .hero-bg-orb,
+  .hero-bg-grid,
+  .hero-bg-silhouette,
+  .hero-steam,
+  .hero-equip-cone,
+  .hero-equip-gear-lg,
+  .hero-equip-gear-sm,
+  .hero-equip-ring,
+  .hero-equip-dust circle,
+  .hero-equip-flow-1,
+  .hero-equip-flow-2,
+  .hero-equip-flow-3,
+  .hero-equip-flow-4,
+  .hero-equip-led,
+  .hero-equip-led-alt,
+  .hero-equipment-enter,
+  .hero-slide-text,
+  .hero-equip-agitator,
+  .hero-equip-homogenizer,
+  .hero-equip-scraper,
+  .hero-equip-bubbles circle,
+  .hero-equip-liquid-level,
+  .hero-equip-liquid-level-alt,
+  .hero-equip-coil,
+  .hero-equip-cream-swirl {
+    animation: none !important;
+  }
 }
